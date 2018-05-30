@@ -14,7 +14,6 @@ class Fifth extends Component {
     }
   }
 
-
   componentDidMount(){
     return fetch('https://rawgit.com/Varinetz/e6cbadec972e76a340c41a65fcc2a6b3/raw/90191826a3bac2ff0761040ed1d95c59f14eaf26/frontend_test_table.json')
       .then((response) => response.json())
@@ -72,10 +71,10 @@ class Fifth extends Component {
     }];
     const rowEvents = {
       onClick: (e, row, rowIndex) => {
-        alert(`Do you want delete row ${rowIndex}?`);
+        alert(`Do you want delete this row ${rowIndex}?`);
         const { dataSource } = this.state;
         const newDataSource = dataSource.filter((item) => (item.id !== Math.floor(rowIndex / 2)+1 ))
-        console.log(newDataSource, Math.floor(rowIndex / 2)+1)
+        console.log(newDataSource, Math.floor(rowIndex / 2)+1, e, row, row.id)
       this.setState({ dataSource: newDataSource })
     }
   }
